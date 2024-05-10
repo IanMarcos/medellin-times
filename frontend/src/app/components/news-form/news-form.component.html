@@ -1,28 +1,45 @@
-<form id="form-container">
+<form id="form-container" [formGroup]="newsForm" (ngSubmit)="handleSubmit()">
   <div class="input-container">
-    <label for="form-name">
+    <label for="title">
       Título<span class="required-field">*</span>
     </label>
-    <input name="title" id="form-title" type="text" maxlength="100">
-  </div>
-  
-  <div class="input-container">
-    <label for="form-desc">Subtítulo</label>
-    <input name="subtitle" id="form-subtitle" type="text" maxlength="250">
+    <input 
+      id="title"
+      maxlength="100"
+      formControlName="title"
+    >
   </div>
 
   <div class="input-container">
-    <label for="form-content">
+    <label for="subtitle">Subtítulo</label>
+    <input
+      id="subtitle"
+      maxlength="250"
+      formControlName="subtitle"
+    >
+  </div>
+
+  <div class="input-container">
+    <label for="content">
       Contenido<span class="required-field">*</span>
     </label>
-    <textarea name="content" id="form-content" maxlength="3000"></textarea>
+    <textarea
+      id="content"
+      maxlength="3000"
+      formControlName="content"
+    >
+    </textarea>
   </div>
 
   <div class="input-container">
-    <label for="form-author">
+    <label for="author">
       Autor<span class="required-field">*</span>
     </label>
-    <input name="author" id="form-author" type="text" maxlength="50">
+    <input
+      id="author"
+      maxlength="50"
+      formControlName="author"
+    >
   </div>
 
   <div class="form-btns">
