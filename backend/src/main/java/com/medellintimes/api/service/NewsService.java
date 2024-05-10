@@ -4,6 +4,9 @@ import com.medellintimes.api.dao.NewsRepository;
 import com.medellintimes.api.model.News;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class NewsService {
 
@@ -20,5 +23,22 @@ public class NewsService {
     newEntity.setImages(null);
 
     return newsRepository.save(newEntity);
+  }
+
+  public News getNewsById(int newsId) {
+    return fetchNews(newsId);
+  }
+
+  public List<News> getAllNews() {
+    return newsRepository.findAll();
+  }
+
+  private News fetchNews(int id) {
+    Optional<News> dbNews = newsRepository.findById(id);
+    if (dbNews.isEmpty()) {
+      throw new RuntimeException("The note doesn't exist or is not active");
+    }
+
+    return dbNews.get();
   }
 }
