@@ -34,4 +34,9 @@ public class NewsController {
   public List<News> getAllNews() {
     return newsService.getAllNews();
   }
+
+  @PutMapping("/{id}")
+  public News putNews(@PathVariable int id, @RequestBody News news) {
+    return newsService.updateNews(id, news);
+  }
 }

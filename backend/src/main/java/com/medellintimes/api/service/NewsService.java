@@ -33,6 +33,15 @@ public class NewsService {
     return newsRepository.findAll();
   }
 
+  public News updateNews(int newsId, News updatedEntity) {
+    News dbNews = fetchNews(newsId);
+
+    updatedEntity.setId(newsId);
+    updatedEntity.setCreatedAt(dbNews.getCreatedAt());
+
+    return newsRepository.save(updatedEntity);
+  }
+
   private News fetchNews(int id) {
     Optional<News> dbNews = newsRepository.findById(id);
     if (dbNews.isEmpty()) {
