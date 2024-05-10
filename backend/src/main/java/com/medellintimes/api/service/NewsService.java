@@ -1,6 +1,7 @@
 package com.medellintimes.api.service;
 
 import com.medellintimes.api.dao.NewsRepository;
+import com.medellintimes.api.model.Image;
 import com.medellintimes.api.model.News;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +49,13 @@ public class NewsService {
     dbNews.setEnabled(0);
 
     newsRepository.save(dbNews);
+  }
+
+  public News addImages(int newsId, List<Image> images) {
+    News dbNews = fetchNews(newsId);
+    dbNews.setImages(images);
+
+    return newsRepository.save(dbNews);
   }
 
   private News fetchNews(int id) {

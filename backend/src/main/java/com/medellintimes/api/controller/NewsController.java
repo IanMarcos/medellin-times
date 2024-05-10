@@ -1,5 +1,6 @@
 package com.medellintimes.api.controller;
 
+import com.medellintimes.api.dto.ImagesToNewsDTO;
 import com.medellintimes.api.model.News;
 import com.medellintimes.api.service.NewsService;
 import org.springframework.http.HttpStatus;
@@ -42,5 +43,10 @@ public class NewsController {
   @DeleteMapping("/{id}")
   public void deleteNews(@PathVariable int id) {
     newsService.deleteNews(id);
+  }
+
+  @PatchMapping("/images/{id}")
+  public News addImagesToNote(@PathVariable int id, @RequestBody ImagesToNewsDTO images) {
+    return newsService.addImages(id, images.getImages());
   }
 }
