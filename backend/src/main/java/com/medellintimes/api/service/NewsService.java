@@ -42,6 +42,14 @@ public class NewsService {
     return newsRepository.save(updatedEntity);
   }
 
+  public void deleteNews(int newsId) {
+    News dbNews = fetchNews(newsId);
+
+    dbNews.setEnabled(0);
+
+    newsRepository.save(dbNews);
+  }
+
   private News fetchNews(int id) {
     Optional<News> dbNews = newsRepository.findById(id);
     if (dbNews.isEmpty()) {
