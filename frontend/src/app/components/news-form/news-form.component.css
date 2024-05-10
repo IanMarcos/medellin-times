@@ -1,0 +1,85 @@
+#form-container {
+  padding: 0 1.2rem;
+  width: 70vw;
+}
+
+#form-container input, textarea {
+  border: solid 2px rgb(195, 195, 195);
+  border-radius: 0.3rem;
+  padding: 3px 0 1ch 3px;
+  width: 100%;
+}
+
+#form-container textarea {
+  height: 4rem;
+  resize: none;
+}
+
+.input-container {
+  padding: 0.6rem 0;
+}
+
+.input-container label {
+  display: block;
+}
+
+.form-btns {
+  margin: 0.8rem 0;
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.get-btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.btn {
+  border: none;
+  border-radius: 0.3rem;
+  color: rgb(250, 250, 250);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 500ms;
+  padding: 0.35rem;
+  height: 3rem;
+}
+
+.primary-btn {
+  background: rgb(42, 100, 224);
+  font-size: 0.75rem;
+  padding: 1.5ch;
+  width: 6rem;
+}
+
+.primary-btn:hover {
+  background: rgb(16, 60, 153);
+}
+
+.secondary-btn {
+  background: rgb(90, 90, 90);
+  font-size: 0.75rem;
+  width: 6rem;
+}
+
+.secondary-btn:hover {
+  background: rgb(71, 71, 71);
+}
+
+.get-btn {
+  background: rgb(42, 106, 224);
+  font-size: 0.8rem;
+  width: 60%;
+  padding: 1.5ch;
+}
+
+.get-btn:hover {
+  background: rgb(25, 35, 122);
+}
+
+.required-field {
+  color: rgb(212, 25, 25);
+  font-size: 1.1rem;
+}

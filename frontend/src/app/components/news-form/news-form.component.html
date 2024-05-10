@@ -1,0 +1,35 @@
+<form id="form-container">
+  <div class="input-container">
+    <label for="form-name">
+      Título<span class="required-field">*</span>
+    </label>
+    <input name="title" id="form-title" type="text" maxlength="100">
+  </div>
+  
+  <div class="input-container">
+    <label for="form-desc">Subtítulo</label>
+    <input name="subtitle" id="form-subtitle" type="text" maxlength="250">
+  </div>
+
+  <div class="input-container">
+    <label for="form-content">
+      Contenido<span class="required-field">*</span>
+    </label>
+    <textarea name="content" id="form-content" maxlength="3000"></textarea>
+  </div>
+
+  <div class="input-container">
+    <label for="form-author">
+      Autor<span class="required-field">*</span>
+    </label>
+    <input name="author" id="form-author" type="text" maxlength="50">
+  </div>
+
+  <div class="form-btns">
+    <button id="form-submit" type="submit" class="btn primary-btn">Crear</button>
+    <button type="reset" class="btn secondary-btn">Limpiar</button>
+  </div>
+  <div class="get-btn-cont">
+    <button type="button" class="btn get-btn">GET noticias</button>
+  </div>
+</form>
