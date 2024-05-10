@@ -19,4 +19,8 @@ public class Image {
 
   @Column
   private String url;
+
+  public Image(String url) {
+    this.url = url;
+  }
 }
