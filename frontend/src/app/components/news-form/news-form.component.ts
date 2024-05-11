@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { NewsApi } from '../../api/NewsApi';
 import { NewArticle } from '../../../types/types';
+import { ResponseService } from '../../service/response.service';
 
 @Component({
   selector: 'app-news-form',
@@ -17,7 +18,10 @@ import { NewArticle } from '../../../types/types';
   providers: [NewsApi],
 })
 export class NewsFormComponent {
-  constructor(private newsApi: NewsApi) {}
+  constructor(
+    private newsApi: NewsApi,
+    private responseService: ResponseService
+  ) {}
 
   newsForm = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -34,7 +38,7 @@ export class NewsFormComponent {
     this.newsApi
       .postNews(this.newsForm.value as NewArticle)
       .subscribe((data) => {
-        console.log(data);
+        this.responseService.setResponse(JSON.stringify(data, null, 2));
       });
   }
 }
