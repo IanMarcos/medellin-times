@@ -5,6 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { NewsApi } from '../../api/NewsApi';
+import { NewArticle } from '../../../types/types';
 
 @Component({
   selector: 'app-news-form',
@@ -12,8 +14,11 @@ import {
   imports: [ReactiveFormsModule],
   templateUrl: './news-form.component.html',
   styleUrl: './news-form.component.css',
+  providers: [NewsApi],
 })
 export class NewsFormComponent {
+  constructor(private newsApi: NewsApi) {}
+
   newsForm = new FormGroup({
     title: new FormControl('', Validators.required),
     subtitle: new FormControl(''),
@@ -25,5 +30,11 @@ export class NewsFormComponent {
     if (this.newsForm.status === 'INVALID') {
       return;
     }
+
+    this.newsApi
+      .postNews(this.newsForm.value as NewArticle)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
