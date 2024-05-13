@@ -1,4 +1,4 @@
-<form id="form-container" [formGroup]="newsForm" (ngSubmit)="handleSubmit()">
+<form [formGroup]="newsForm" (ngSubmit)="handleSubmit()">
   <div class="input-container">
     <label for="title">
       Título<span class="required-field">*</span>
@@ -33,7 +33,7 @@
 
   <div class="input-container">
     <label for="author">
-      Autor<span class="required-field">*</span>
+      Autor(a)<span class="required-field">*</span>
     </label>
     <input
       id="author"

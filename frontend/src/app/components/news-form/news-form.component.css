@@ -1,16 +1,16 @@
-#form-container {
-  padding: 0 1.2rem;
-  width: 70vw;
+:host {
+  padding: 1.2rem 1ch;
+  width: clamp(320px, 50%, 1000px);
 }
 
-#form-container input, textarea {
+:host input, textarea {
   border: solid 2px rgb(195, 195, 195);
   border-radius: 0.3rem;
   padding: 3px 0 1ch 3px;
   width: 100%;
 }
 
-#form-container textarea {
+:host textarea {
   height: 4rem;
   resize: none;
 }
@@ -21,6 +21,7 @@
 
 .input-container label {
   display: block;
+  min-height: 21px;
 }
 
 .form-btns {
@@ -82,4 +83,22 @@
 .required-field {
   color: rgb(212, 25, 25);
   font-size: 1.1rem;
+}
+
+@media only screen and (min-width: 700px) {
+  :host form{
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / 42% 42%;
+    column-gap: 0.4rem;
+    justify-content: space-around;
+  }
+
+  .form-btns {
+    grid-column: 1 / 3;
+  }
+
+  .get-btn-cont {
+    grid-column: 1 / 3;
+    align-items: start;
+  }
 }

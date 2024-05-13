@@ -18,8 +18,14 @@ h1, label {
 }
 
 main {
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  padding: 0 1rem 0;
+}
+
+@media only screen and (min-width: 700px) {
+  main {
+    flex-wrap: nowrap;
+  }
 }
