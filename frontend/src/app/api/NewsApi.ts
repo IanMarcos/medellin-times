@@ -4,10 +4,19 @@ import { NewArticle, News } from '../../types/types';
 
 @Injectable()
 export class NewsApi {
-  constructor(private http: HttpClient) {}
+  private apiURL;
+
+  constructor(private http: HttpClient) {
+    this.apiURL = 'http://localhost:8080';
+  }
 
   postNews(body: NewArticle) {
-    const apiURL = 'http://localhost:8080/news';
-    return this.http.post<News>(apiURL, body);
+    const url = this.apiURL + '/news';
+    return this.http.post<News>(url, body);
+  }
+
+  getAllNews() {
+    const url = this.apiURL + '/news';
+    return this.http.get<News>(url);
   }
 }

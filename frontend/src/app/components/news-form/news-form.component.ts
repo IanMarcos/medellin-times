@@ -40,5 +40,13 @@ export class NewsFormComponent {
       .subscribe((data) => {
         this.responseService.setResponse(JSON.stringify(data, null, 2));
       });
+
+    this.newsForm.reset();
+  }
+
+  handleGetNews() {
+    this.newsApi.getAllNews().subscribe((data) => {
+      this.responseService.setResponse(JSON.stringify(data, null, 2));
+    });
   }
 }
