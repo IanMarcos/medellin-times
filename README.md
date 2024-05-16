@@ -21,7 +21,14 @@ Configurar la red para la comunicación entre contenedores
 Iniciar la base de datos
 
     docker run --net medellin-times-net --name medellin-times-db -e MYSQL_ROOT_PASSWORD=password -d -p 3306:3306 mysql
-    docker exec medellin-times-db /bin/sh -c 'mysql -u root -ppassword < ./dump.sql'
+    docker cp ./dump.sql medellin-times-db:/docker-entrypoint-initdb.d/schema.sql
+    docker exec -it medellin-times-db /bin/sh
+    mysql -u root -p
+
+Aquí se ingresa la contraseña "password"
+
+    source /docker-entrypoint-initdb.d/schema.sql;
+    exit;
 
 Configure la conexión entre el backend y la DB dirigiéndose al archivo `backend\src\main\resources\application.yaml` y cambiando la url y el username por:
 
